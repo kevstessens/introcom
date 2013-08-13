@@ -80,7 +80,7 @@ public class Main {
             outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(tamanioFormatChunk).array()); // 16 - size of this chunk
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) formatoDeAudio).array());        // 20 - what is the audio format? 1 for PCM = Pulse Code Modulation
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) canalesDeSalida).array());  // 22 - mono or stereo? 1 or 2?  (or 5 or ???)
-            outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(frecuencia).array());        // 24 - samples per second (numbers per second)
+            outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(frecuencia*2).array());        // 24 - samples per second (numbers per second)
             outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(bytesPorSegundo).array());      // 28 - bytes per second
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) bytesPorCanal).array());    // 32 - # of bytes in one sample, for all channels
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) bitsPorSegundo).array()); // 34 - how many bits in a sample(number)?  usually 16 or 24
@@ -98,7 +98,7 @@ public class Main {
             byte[] nuevaData = new byte[tamanioDataChunk];
             ByteBuffer buffer = ByteBuffer.wrap(nuevaData);
             buffer.order(ByteOrder.LITTLE_ENDIAN);
-            for (int i = comienzoDatos; i < tamanioDataChunk; i = i + 2){
+            for (int i = comienzoDatos; i < tamanioDataChunk; i++){
                 inFile.read(buffer.array());
             }
             outFile.write(buffer.array());                      // 44 - the actual data itself - just a long string of numbers
