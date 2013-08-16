@@ -66,10 +66,10 @@ public class Main {
             }
             comienzoDatos = indiceData + 8;
 
-            DataOutputStream outFile = new DataOutputStream(new FileOutputStream("fast.wav"));
+            DataOutputStream outFile = new DataOutputStream(new FileOutputStream("fast_old.wav"));
 
             int bytesPorSegundo = frecuencia * canalesDeSalida * bitsPorSegundo / 8;
-            int bytesPorCanal = canalesDeSalida * bitsPorSegundo / 8;
+            int bytesPorMuestra = canalesDeSalida * bitsPorSegundo / 8;
 
             // write the wav file per the wav file format
             outFile.writeBytes("RIFF");                 // 00 - RIFF
@@ -80,9 +80,9 @@ public class Main {
             outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(tamanioFormatChunk).array()); // 16 - size of this chunk
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) formatoDeAudio).array());        // 20 - what is the audio format? 1 for PCM = Pulse Code Modulation
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) canalesDeSalida).array());  // 22 - mono or stereo? 1 or 2?  (or 5 or ???)
-            outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(frecuencia*2).array());        // 24 - samples per second (numbers per second)
+            outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(frecuencia).array());        // 24 - samples per second (numbers per second)
             outFile.write(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(bytesPorSegundo).array());      // 28 - bytes per second
-            outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) bytesPorCanal).array());    // 32 - # of bytes in one sample, for all channels
+            outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) bytesPorMuestra).array());    // 32 - # of bytes in one sample, for all channels
             outFile.write(ByteBuffer.allocate(2).order(ByteOrder.LITTLE_ENDIAN).putShort((short) bitsPorSegundo).array()); // 34 - how many bits in a sample(number)?  usually 16 or 24
             outFile.writeBytes("data");                 // 36 - data
 
@@ -95,13 +95,17 @@ public class Main {
             for (int i = 0; i < comienzoDatos; i++) {
                 inFile.read();
             }
-            byte[] nuevaData = new byte[tamanioDataChunk];
-            ByteBuffer buffer = ByteBuffer.wrap(nuevaData);
-            buffer.order(ByteOrder.LITTLE_ENDIAN);
-            for (int i = comienzoDatos; i < tamanioDataChunk; i++){
+
+            byte[] nuevaData = new byte[4];
+
+            for (int i = 0; i < tamanioDataChunk; i++) {
+                ByteBuffer buffer = ByteBuffer.wrap(nuevaData);
+                //buffer.order(ByteOrder.LITTLE_ENDIAN);
+                inFile.read(buffer.array());
+                outFile.write(buffer.array());                      // 44 - the actual data itself - just a long string of numbers
                 inFile.read(buffer.array());
             }
-            outFile.write(buffer.array());                      // 44 - the actual data itself - just a long string of numbers
+
 
         } catch (IOException e) {
             e.printStackTrace();
