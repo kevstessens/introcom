@@ -100,13 +100,10 @@ public class Main {
 
             for (int i = 0; i < tamanioDataChunk; i++) {
                 ByteBuffer buffer = ByteBuffer.wrap(nuevaData);
-                //buffer.order(ByteOrder.LITTLE_ENDIAN);
                 inFile.read(buffer.array());
                 outFile.write(buffer.array());                      // 44 - the actual data itself - just a long string of numbers
                 inFile.read(buffer.array());
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
