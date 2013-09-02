@@ -66,7 +66,7 @@ public class Main {
             }
             comienzoDatos = indiceData + 8;
 
-            DataOutputStream outFile = new DataOutputStream(new FileOutputStream("fast_old.wav"));
+            DataOutputStream outFile = new DataOutputStream(new FileOutputStream("fast.wav"));
 
             int bytesPorSegundo = frecuencia * canalesDeSalida * bitsPorSegundo / 8;
             int bytesPorMuestra = canalesDeSalida * bitsPorSegundo / 8;
