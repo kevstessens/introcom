@@ -1,0 +1,20 @@
+Pasos para ejecutar el programa que aumenta la velocidad de un archivo WAV
+
+
+1. Abrir la terminal
+2. dirigirse al path del archivo Main.class
+3. escribir "java Main" y presionar enter. Esto ejecuta el archivo y genera en la mismar carpeta un archivo con el nombre "fast_old.wav" que es el sonido con mayor velocidad
+Ademas, la consola muestra los siguientes datos:
+
+	Es un archivo RIFF
+	Es un archivo WAV
+	Tamaño de format chunk: 16
+	El archivo no esta comprimido
+	Cantidad de canales de salida: 2
+	Frecuencia: 11025
+	bPS: 16
+	Tamaño de data chunk: 391568
+	Nuevo tamaño data chunk: 195784
+
+4. reproducir el archivo con un reproductor de audio.
+5. En caso de querer usar OTRO archivo para aumentar su velocidad, debe colocarse en la carpeta que contiene Main.class y ser renombrado a "uno.wav" (Debe ser un archivo WAV sin compresion alguna)

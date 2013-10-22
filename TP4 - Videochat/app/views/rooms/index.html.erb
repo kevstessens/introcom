@@ -1,0 +1,26 @@
+<div id=”newRoom”>
+  <fieldset>
+    <legend>Empezar un nuevo chat en grupo</legend>
+    <%= form_for(@new_room) do |f| %>
+        Nombre del chat: <%= f.text_field :name %><br/><br/>
+        Publico? <%= f.check_box :public %><br/><br/>
+
+        <%= f.submit %>
+    <% end %>
+  </fieldset>
+</div>
+
+<fieldset>
+  <legend>Chats existentes</legend>
+  <table cellpadding=”2″ cellspacing=”5″>
+    <tr>
+      <th>Nombre</th>
+    </tr>
+
+    <% @rooms.each do |room| %>
+        <tr>
+          <td align=”center” width=”300px”><a href=”/party/<%= room.id %>”><%= room.name %></a></td>
+        </tr>
+    <% end %>
+  </table>
+</fieldset>
