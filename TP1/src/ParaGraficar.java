@@ -7,6 +7,7 @@
  */
 
 import java.io.*;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -22,7 +23,7 @@ public class ParaGraficar {
         boolean estaComprimido;
 
         try {
-            Path path = Paths.get("fast.wav");
+            Path path = Paths.get(URI.create("fast.wav"));
             byte[] data = Files.readAllBytes(path);
 
             if (("" + (char) data[0] + (char) data[1] + (char) data[2] + (char)data[3]).equals("RIFF"))
