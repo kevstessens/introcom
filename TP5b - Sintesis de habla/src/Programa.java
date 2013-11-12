@@ -20,17 +20,17 @@ public class Programa {
         LectorDeDatos lector = new LectorDeDatos();
         Concatenador concatenador = new Concatenador();
 
-        String pathBienvenido = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\bienvenido.wav";
+        String pathBienvenido = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\bienvenido.wav";
         audio.ejecutarAudio(pathBienvenido);
 
 
-        String pathIngresarNumCliente = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\ingresar num cliente.wav";
+        String pathIngresarNumCliente = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\ingresar num cliente.wav";
         audio.ejecutarAudio(pathIngresarNumCliente);
 
         numClientePedido = lector.leer("Ingrese un número de cliente: ");
         while (!clienteEsta()){
 
-            String pathClienteNoEncontrado = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\num cliente no encontrado.wav";
+            String pathClienteNoEncontrado = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\num cliente no encontrado.wav";
             audio.ejecutarAudio(pathClienteNoEncontrado);
 
             audio.ejecutarAudio(pathIngresarNumCliente);
@@ -39,18 +39,18 @@ public class Programa {
         }
         if (clientePedido.getVuelos() == null){
 
-            String pathClienteNoTieneVuelos = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\cliente no tiene vuelos.wav";
+            String pathClienteNoTieneVuelos = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\cliente no tiene vuelos.wav";
             audio.ejecutarAudio(pathClienteNoTieneVuelos);
 
         }else {
 
-            String pathIngresarNumVueloPedido = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\ingresar num vuelo.wav";
+            String pathIngresarNumVueloPedido = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\ingresar num vuelo.wav";
             audio.ejecutarAudio(pathIngresarNumVueloPedido);
 
             int numVueloPedido = lector.leer("Ingrese un número de vuelo: ");
             while (!clientePedido.tieneVuelo(numVueloPedido)){
 
-                String pathVueloNoEncontrado = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\num vuelo no encontrado.wav";
+                String pathVueloNoEncontrado = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\num vuelo no encontrado.wav";
                 audio.ejecutarAudio(pathVueloNoEncontrado);
 
                 audio.ejecutarAudio(pathIngresarNumVueloPedido);
@@ -61,7 +61,7 @@ public class Programa {
             concatenador.concatenar(vuelo);
         }
 
-        String pathSaludoFinal = "C:\\Users\\skylight\\Documents\\Lucas\\Fac\\Intro Com\\adios.wav";
+        String pathSaludoFinal = "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP5b - Sintesis de habla\\audio\\adios.wav";
         audio.ejecutarAudio(pathSaludoFinal);
 
     }

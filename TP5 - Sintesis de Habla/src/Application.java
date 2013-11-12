@@ -6,7 +6,4 @@ public class Application {
         MainFrame mainFrame = new MainFrame(args);
 
     }
-
-
-
 }
