@@ -22,39 +22,39 @@ public class Ejecutador {
 
             if (i == 0){
                 switch (letra){
-                    case 'p': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_p (patata).wav");
+                    case 'p': concatenacion.add(i, "audio\\_p (patata).wav");
                         break;
-                    case 't': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_t (tutu).wav");
+                    case 't': concatenacion.add(i, "audio\\_t (tutu).wav");
                         break;
-                    case 'a': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_a (apesta).wav");
+                    case 'a': concatenacion.add(i, "audio\\_a (apesta).wav");
                         break;
-                    case 'e': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_e (epifania).wav");
+                    case 'e': concatenacion.add(i, "audio\\_e (epifania).wav");
                         break;
-                    case 'i': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_i (ipesa).wav");
+                    case 'i': concatenacion.add(i, "audio\\_i (ipesa).wav");
                         break;
-                    case 'o': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_o (otro).wav");
+                    case 'o': concatenacion.add(i, "audio\\_o (otro).wav");
                         break;
-                    case 'u': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\_u (upa).wav");
+                    case 'u': concatenacion.add(i, "audio\\_u (upa).wav");
                         break;
                 }
             }else if (i != lstPalabra.length - 1){
                 char letraAnterior = lstPalabra[i-1];
                 if (letraAnterior == 'p'){
                     switch (letra){
-                        case 'a': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\pa (patata).wav");
+                        case 'a': concatenacion.add(i, "audio\\pa (patata).wav");
                             break;
-                        case 'e': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\pe (petete).wav");
+                        case 'e': concatenacion.add(i, "audio\\pe (petete).wav");
                             break;
-                        case 'i': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\pi (piti).wav");
+                        case 'i': concatenacion.add(i, "audio\\pi (piti).wav");
                             break;
-                        case 'o': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\po (popurri).wav");
+                        case 'o': concatenacion.add(i, "audio\\po (popurri).wav");
                             break;
-                        case 'u': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\pu (popurri).wav");
+                        case 'u': concatenacion.add(i, "audio\\pu (popurri).wav");
                             break;
                     }
                 }else if (letraAnterior == 't'){
                     switch (letra){
-                        case 'a': concatenacion.add(i, "C:\\Users\\skylight\\Documents\\GitHub\\introcom\\TP 6\\audio\\ta (apesta).wav");
+                        case 'a': concatenacion.add(i, "audio\\ta (apesta).wav");
                             break;
                     }
                 }
