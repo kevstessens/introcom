@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class GeneradorDePalabras {
 
-    public static List<String> generarPalabra(String[] splitText) throws Exception {
+    public List<String> generarPalabra(String[] splitText) throws Exception {
         List<String> audio_files;
         List<String> words = new ArrayList<String>();
 
@@ -40,7 +40,7 @@ public class GeneradorDePalabras {
     }
 
 
-    public static Boolean concatenar(List<String> sourceFilesList, String destinationFileName) throws Exception {
+    public Boolean concatenar(List<String> sourceFilesList, String destinationFileName) throws Exception {
         Boolean result = false;
 
         AudioInputStream audioInputStream = null;
@@ -51,7 +51,7 @@ public class GeneradorDePalabras {
         try {
             // loop through our files first and load them up
             for (String sourceFile : sourceFilesList) {
-                audioInputStream = AudioSystem.getAudioInputStream(new File("audio/" + sourceFile));
+                audioInputStream = AudioSystem.getAudioInputStream(new File("TP6B/audio/" + sourceFile));
 
                 // get the format of first file
                 if (audioFormat == null) {
@@ -74,7 +74,8 @@ public class GeneradorDePalabras {
             }
 
             // now write our concatenated file
-            AudioSystem.write(new AudioInputStream(new SequenceInputStream(Collections.enumeration(audioInputStreamList)), audioFormat, frameLength), AudioFileFormat.Type.WAVE, new File(destinationFileName));
+            AudioSystem.write(new AudioInputStream(new SequenceInputStream(Collections.enumeration(audioInputStreamList))
+                    , audioFormat, frameLength), AudioFileFormat.Type.WAVE, new File(destinationFileName));
 
             // if all is good, return true
             result = true;

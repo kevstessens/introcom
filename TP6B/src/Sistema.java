@@ -29,7 +29,8 @@ public class Sistema {
                 case 1:
                     text = JOptionPane.showInputDialog("Ingrese palabra: ");
 
-                    Reproductor.reproducir(GeneradorDePalabras.generarPalabra(text.split("\\s+")));
+                    GeneradorDePalabras gen = new GeneradorDePalabras();
+                    Reproductor.reproducir(gen.generarPalabra(text.split("\\s+")));
 
 
                     break;
